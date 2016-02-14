@@ -36,10 +36,7 @@
             android:stateNotNeeded="true"
             android:theme="@style/zxing_CaptureTheme"
             android:windowSoftInputMode="stateAlwaysHidden">
-
         </activity>
-
-
 
         <provider
             android:name=".data.BookProvider"

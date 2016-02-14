@@ -1,6 +1,7 @@
 package it.jaschke.alexandria;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -10,7 +11,6 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +20,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -44,7 +43,8 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
     private String mScanFormat = "Format:";
     private String mScanContents = "Contents:";
 
-
+    public static final String MESSAGE_EVENT = "MESSAGE_EVENT";
+    public static final String MESSAGE_KEY = "MESSAGE_EXTRA";
 
     public AddBook(){
     }
@@ -220,4 +220,14 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
         super.onAttach(activity);
         activity.setTitle(R.string.scan);
     }
+
+/*    private class MessageReciever extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if(intent.getStringExtra(MESSAGE_KEY)!=null){
+                Toast.makeText(getActivity().getApplicationContext(), intent.getStringExtra(MESSAGE_KEY), Toast.LENGTH_LONG).show();
+            }
+        }
+    }*/
+
 }
